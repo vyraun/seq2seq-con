@@ -33,6 +33,10 @@ python prepare_data.py -train_src /path/to/processed/train/file.fr -train_tgt /p
 -valid_src /path/to/processed/valid/file.fr -valid_tgt /path/to/processed/valid/file.en -save_data /path/to/save/data.pt \
 -src_vocab_size 50000 -tgt_vocab_size 50000 -tgt_emb /path/to/target/embeddings/file -emb_dim 300 -normalize
 ```
+```
+python prepare_data.py -train_src ../data/fren/train.fr -train_tgt ../data/fren/train.en -valid_src ../data/fren/tst201314.fr -valid_tgt ../data/fren/tst201314.en  -save_data ../data/fren/frendata1.pt -src_vocab_size 50000 -tgt_vocab_size 50000 -tgt_emb ../corpus.fasttext.txt  -emb_dim 300 -normalize
+```
+
 ## Training 
 
 ```
