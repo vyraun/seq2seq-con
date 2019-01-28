@@ -114,8 +114,12 @@ class Dict(object):
         if normalize:
             self.embeddings[self.labelToIdx[unk]] = self.embeddings[self.labelToIdx[unk]]/np.linalg.norm(self.embeddings[self.labelToIdx[unk]])
 
-    def convert_embeddings_to_torch(self):
-        embeddings_tensor = np.zeros((self.size(), 200))
+    def convert_embeddings_to_torch(self, dim=None):
+        if dim is not None:
+            d = dim
+        else:
+            d = 300
+        embeddings_tensor = np.zeros((self.size(), 300))
         for k, v in self.embeddings.items():
             embeddings_tensor[k] = v
         self.embeddings = torch.Tensor(embeddings_tensor)
