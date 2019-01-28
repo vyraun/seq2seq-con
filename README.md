@@ -37,10 +37,15 @@ python prepare_data.py -train_src /path/to/processed/train/file.fr -train_tgt /p
 python prepare_data.py -train_src ../data/fren/train.fr -train_tgt ../data/fren/train.en -valid_src ../data/fren/tst201314.fr -valid_tgt ../data/fren/tst201314.en  -save_data ../data/fren/frendata1.pt -src_vocab_size 50000 -tgt_vocab_size 50000 -tgt_emb ../corpus.fasttext.txt  -emb_dim 300 -normalize
 ```
 
+saved at ../data/fren/frendata1.pt.train.pt
+
 ## Training 
 
 ```
 python train.py -gpus 0 -data /path/to/save/data.pt -layers 2 -rnn_size 1024 -word_vec_size 512 -output_emb_size 300 -brnn -loss nllvmf -epochs 15 -optim adam -dropout 0.0 -learning_rate 0.0005 -log_interval 100 -save_model /path/to/save/model -batch_size 64 -tie_emb
+```
+```
+python train.py -gpus 0 -data ../data/fren/frendata1.pt.train.pt -layers 2 -rnn_size 1024 -word_vec_size 512 -output_emb_size 300 -brnn -loss nllvmf -epochs 15 -optim adam -dropout 0.0 -learning_rate 0.0005 -log_interval 100 -save_model ./models/ -batch_size 64 -tie_emb
 ```
 
 ## Decoding/Translation
